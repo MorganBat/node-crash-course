@@ -4,6 +4,9 @@ const morgan = require('morgan');
 // express app
 const app = express();
 
+// connect to mongodb
+const dbURI = 'mongodb+srv://netninja:<password>@nodetuts.m5hut.mongodb.net/<dbname>?retryWrites=true&w=majority'
+
 // register view engine
 app.set('view engine', 'ejs');
 // app.set('views', 'myviews')

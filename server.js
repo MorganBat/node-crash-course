@@ -1,9 +1,19 @@
 const http = require('http');
 const fs = require('fs');
-const { red } = require('color-name');
+const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
-    console.log(req.method, req.url);
+
+    // lodash
+    const num = _.random(0, 20);
+    console.log(num)
+
+    const greet = _.once(() => {
+        console.log('hello')
+    });
+
+    greet();
+    greet();
 
     // set header content type
     res.setHeader('Content-Type', 'text/html');

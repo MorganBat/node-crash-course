@@ -17,6 +17,9 @@ app.get('/about', (req, res) => {
 // redirects
 app.get('/about-us', (req, res) => {
     res.redirect('/about');
-}
+});
 
 // 404 page
+app.use((req, res) => {
+    res.sendFile('./views/404.html', { root: __dirname })
+});

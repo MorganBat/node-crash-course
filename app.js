@@ -1,11 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
+const dotenv = require('dotenv').config()
 
 // express app
 const app = express();
 
 // connect to mongodb
-const dbURI = 'mongodb+srv://netninja:<password>@nodetuts.m5hut.mongodb.net/<dbname>?retryWrites=true&w=majority'
+const dbURI = `mongodb+srv://netninja:${process.env.MONGO_PASSWORD}@nodetuts.m5hut.mongodb.net/<dbname>?retryWrites=true&w=majority`
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
     { title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur' },
     { title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur' },
   ];
+    console.log(process.env.MONGO_PASSWORD)
     res.render('index', { title: 'Home', blogs })
 });
 

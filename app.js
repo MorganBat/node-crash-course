@@ -8,14 +8,13 @@ const app = express();
 
 // connect to mongodb
 const dbURI = `mongodb+srv://netninja:${process.env.MONGO_PASSWORD}@nodetuts.m5hut.mongodb.net/node-tuts?retryWrites=true&w=majority`
-mongoose.connect(dbURI)
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then((result) => app.listen(3000))
+  .catch((err) => console.log(err));
 
 // register view engine
 app.set('view engine', 'ejs');
 // app.set('views', 'myviews')
-
-// listen for requests
-app.listen(3000);
 
 // middleware & static files
 app.use(express.static('public'));

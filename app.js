@@ -7,7 +7,8 @@ const mongoose = require('mongoose')
 const app = express();
 
 // connect to mongodb
-const dbURI = `mongodb+srv://netninja:${process.env.MONGO_PASSWORD}@nodetuts.m5hut.mongodb.net/<dbname>?retryWrites=true&w=majority`
+const dbURI = `mongodb+srv://netninja:${process.env.MONGO_PASSWORD}@nodetuts.m5hut.mongodb.net/node-tuts?retryWrites=true&w=majority`
+mongoose.connect(dbURI)
 
 // register view engine
 app.set('view engine', 'ejs');
